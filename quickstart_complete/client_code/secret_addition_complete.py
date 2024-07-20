@@ -1,11 +1,3 @@
-"""
-In this example, we:
-1. connect to the local nillion-devnet
-2. store the secret addition program
-3. store a secret to be used in the computation
-4. compute the secret addition program with the stored secret and another computation time secret
-"""
-
 import asyncio
 import py_nillion_client as nillion
 import os
@@ -75,7 +67,10 @@ async def main():
     # Create a secret named "my_int1" with any value, ex: 500
     new_secret = nillion.NadaValues(
         {
-            "my_int1": nillion.SecretInteger(500),
+            "my_int1": nillion.SecretInteger(350),
+            "a": nillion.SecretInteger(1),
+            "b": nillion.SecretInteger(-4),
+            "c": nillion.SecretInteger(4),
         }
     )
 
@@ -108,7 +103,7 @@ async def main():
     compute_bindings.add_output_party(party_name, party_id)
 
     # Add my_int2, the 2nd secret at computation time
-    computation_time_secrets = nillion.NadaValues({"my_int2": nillion.SecretInteger(10)})
+    computation_time_secrets = nillion.NadaValues({"my_int2": nillion.SecretInteger(50)})
 
     # Pay for the compute
     receipt_compute = await get_quote_and_pay(
@@ -134,9 +129,9 @@ async def main():
         compute_event = await client.next_compute_event()
         if isinstance(compute_event, nillion.ComputeFinishedEvent):
             print(f"✅  Compute complete for compute_id {compute_event.uuid}")
-            print(f"🖥️  The result is {compute_event.result.value}")
+            print(f"🖥  The result is {compute_event.result.value}")
             return compute_event.result.value
 
 
-if __name__ == "__main__":
+if __name__ == "main":
     asyncio.run(main())

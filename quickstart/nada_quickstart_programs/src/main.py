@@ -2,11 +2,48 @@ from nada_dsl import *
 
 def nada_main():
     party1 = Party(name="Party1")
-    party2 = Party(name="Party2")
-    party3 = Party(name="Party3")
-    a = SecretInteger(Input(name="A", party=party1))
-    b = SecretInteger(Input(name="B", party=party2))
+    a = SecretInteger(Input(name="a", party=party1))
+    b = SecretInteger(Input(name="b", party=party1))
+    c = SecretInteger(Input(name="c", party=party1))
+    
+    my_int1 = SecretInteger(Input(name="my_int1", party=party1))
+    my_int2 = SecretInteger(Input(name="my_int2", party=party1))
 
-    result = a + b
+    r = my_int1 * my_int2
+    r3 = my_int1 / my_int2
+    r4 = (my_int1 + my_int2) * (my_int1 - my_int2)
 
-    return [Output(result, "my_output", party3)]
+    int1 = my_int1 + Integer(1)
+    int2 = my_int2 + Integer(1)
+
+    def max(a: SecretInteger, b: SecretInteger) -> SecretInteger:
+        return (a < b).if_else(b, a)
+
+    r6 = (my_int1 + my_int2) * ((my_int1 * my_int1) - (my_int1 * my_int2) + (my_int2 * my_int2))
+    r1 = min(my_int1, my_int2)
+    r5 = Integer(0)
+    r7 = (b * b) - (a * c )* Integer(4)
+    x = r7 / Integer(2)
+    for _ in range(10):
+        x = (x + r7 / x) / Integer(2)
+    sqrt_discriminant = x
+
+    two_a = a * Integer(2)
+    neg_b = b * Integer(-1)
+
+    r8 = (neg_b + sqrt_discriminant) /two_a
+    r9 = (neg_b - sqrt_discriminant) / two_a
+
+    r0=Integer(0)
+    
+
+    
+    out0 = Output(r0, "Welcome to Math House Goa", party1)
+    out1 = Output(r1, "Minimum of two Numbers", party1)
+    out2 = Output(r, "Multiplication of Two Numbers", party1)
+    out3 = Output(r3, "Division of Two Numbers", party1)
+    out4 = Output(r4, "(a^2-b^2)=(a+b)(a-b) =", party1)
+    out5 = Output(r8, "Root 1 of the quadratic equation 1x^2-4x+4=0", party1)
+    out6 = Output(r9, "Root 2 of the quadratic equation 1x^2-4x+4=0", party1)
+    
+    return [out0, out5, out6, out1, out2, out3, out4]

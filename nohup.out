@@ -10,3 +10,5 @@
 🏃 starting node 12D3KooWAiwGZUwSUaT2bYVxGS8jmfMrfsanZYkHwH3uL7WJPsFq
 🏃 starting node 12D3KooWM3hsAswc7ZT6VpwQ1TCZU4GCYY55nLhcsxCcfjuixW57
 👛 funding nilchain keys
+📝 nillion CLI configuration written to /root/.config/nillion/nillion-cli.yaml
+🌄 environment file written to /root/.config/nillion/nillion-devnet.env
