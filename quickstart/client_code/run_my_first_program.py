@@ -67,7 +67,7 @@ async def main():
     # Create a secret named "my_int1" with any value, ex: 500
     new_secret = nillion.NadaValues(
         {
-            "my_int1": nillion.SecretInteger(500),
+            "my_int1": nillion.SecretInteger(350),
             "a": nillion.SecretInteger(1),
             "b": nillion.SecretInteger(-4),
             "c": nillion.SecretInteger(4),
@@ -103,7 +103,7 @@ async def main():
     compute_bindings.add_output_party(party_name, party_id)
 
     # Add my_int2, the 2nd secret at computation time
-    computation_time_secrets = nillion.NadaValues({"my_int2": nillion.SecretInteger(10)})
+    computation_time_secrets = nillion.NadaValues({"my_int2": nillion.SecretInteger(5)})
 
     # Pay for the compute
     receipt_compute = await get_quote_and_pay(
