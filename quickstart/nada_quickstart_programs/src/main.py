@@ -20,7 +20,7 @@ def nada_main():
         return (a < b).if_else(b, a)
 
     r6 = (my_int1 + my_int2) * ((my_int1 * my_int1) - (my_int1 * my_int2) + (my_int2 * my_int2))
-    r1 = min(my_int1, my_int2)
+    r1 = max(my_int1, my_int2)
     r5 = Integer(0)
     r7 = (b * b) - (a * c )* Integer(4)
     x = r7 / Integer(2)
@@ -33,17 +33,14 @@ def nada_main():
 
     r8 = (neg_b + sqrt_discriminant) /two_a
     r9 = (neg_b - sqrt_discriminant) / two_a
-
-    r0=Integer(0)
     
 
     
-    out0 = Output(r0, "Welcome to Math House Goa", party1)
-    out1 = Output(r1, "Minimum of two Numbers", party1)
+    out1 = Output(r1, "Maximum of two Numbers", party1)
     out2 = Output(r, "Multiplication of Two Numbers", party1)
     out3 = Output(r3, "Division of Two Numbers", party1)
     out4 = Output(r4, "(a^2-b^2)=(a+b)(a-b) =", party1)
     out5 = Output(r8, "Root 1 of the quadratic equation 1x^2-4x+4=0", party1)
     out6 = Output(r9, "Root 2 of the quadratic equation 1x^2-4x+4=0", party1)
-    
-    return [out0, out5, out6, out1, out2, out3, out4]
+       
+    return [out5, out6, out1,out2,out3,out4]
